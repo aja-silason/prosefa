@@ -1,12 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
 import { router } from "expo-router";
 
 //import NotFoundSVG from '../assets/not-found.svg';
-
 //<NotFoundSVG width={200} height={200} />
 
 
@@ -14,8 +11,6 @@ const example1 = require("@/assets/images/in_assets/example1.png");
 
 
 export default function PresentationScreen() {
-
-    //const navigate: any = useNavigation();
 
     const go = () => {
         //navigate.navigate("home");
