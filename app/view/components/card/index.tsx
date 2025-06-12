@@ -12,7 +12,11 @@ export const Card = ({ icon, title, description }: props) => {
 
     return (
         <View style={styles.card}>
-            {icon}
+
+            <View style={styles.icon}>
+                {icon}
+            </View>
+
             <View style={styles.textContainer}>
                 <Text style={styles.textTitle}>{title}</Text>
                 <Text style={styles.textDescription}>{description}</Text>
@@ -28,7 +32,10 @@ const styles = StyleSheet.create({
         borderColor: Colors.light.gray[100],
         padding: 10,
         borderRadius: 5,
-        paddingVertical: 40
+        paddingVertical: 40,
+    },
+    icon: {
+        marginBottom: 20
     },
     textContainer: {
         gap: 2,

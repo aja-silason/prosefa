@@ -1,8 +1,11 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { Card, Container } from "../components";
+import { Card, Container, ProductCard } from "../components";
 import { ReactNode } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
+import { fiscalStamp } from "@/app/model/selo";
+
+import cervejaStamp from "@/app/viewmodel/mock/selos.json";
 
 
 type cardProps = {
@@ -15,131 +18,10 @@ export default function Home() {
 
 
     const cards: cardProps[] = [
-        { icon: <Ionicons name="search" size={25} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" }
+        { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" },
+        { icon: <Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" }
     ]
 
-    const cards1: cardProps[] = [
-        { icon: <Ionicons name="search" size={25} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-        { icon: <Ionicons name="qr-code-outline" size={25} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" },
-    ]
 
     return (
         <Container>
@@ -157,7 +39,7 @@ export default function Home() {
                 }
             </View>
 
-            <FlatList data={cards1}
+            <FlatList data={cervejaStamp}
                 keyExtractor={(_, index) => index?.toString()}
                 //onEndReached={loadMoreInformationOperationsActivity}
                 //onEndReachedThreshold={0.5}
@@ -169,7 +51,7 @@ export default function Home() {
                 }
                 renderItem={({ item, index }) => (
                     <View style={styles.flatlistStyleRenderComponent}>
-                        < Text key={index}>{item?.title}</Text>
+                        <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index}/>
                     </View>
                 )
                 } ListEmptyComponent={() => (
@@ -184,7 +66,8 @@ export default function Home() {
 const styles = StyleSheet.create({
     cardsContainer: {
         flexDirection: "row",
-        gap: 5
+        gap: 5,
+        marginBottom: 10
     },
     textContainer: {
         marginVertical: 10,
