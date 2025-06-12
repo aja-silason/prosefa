@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
+import { router } from "expo-router";
 
 //import NotFoundSVG from '../assets/not-found.svg';
 
@@ -11,12 +12,14 @@ import Colors from "@/constants/Colors";
 
 const example1 = require("@/assets/images/in_assets/example1.png");
 
+
 export default function PresentationScreen() {
 
-    const navigate: any = useNavigation();
+    //const navigate: any = useNavigation();
 
     const go = () => {
-        navigate.navigate("home");
+        //navigate.navigate("home");
+        router.replace("/view/screens/home");
     }
 
     return (
@@ -26,7 +29,7 @@ export default function PresentationScreen() {
                 <Text style={styles.textTitle}>Programa Nacional de Selos Fiscais de Alta Segurança</Text>
                 <Text style={styles.textText}>O PROSEFA visa a combater o contrabando e a contrafacção, a protecção da receita devida ao estado, garantir a fiabilidade dos produtos introduzidos no território nacional e, deste modo, proteger a saúde pública, os direitos de propriedade intelectual e melhorar o ambiente de negócios.</Text>
 
-                <Button onClick={go} text="Ir para step 2" />
+                <Button onClick={go} text="Iniciar" />
             </View>
         </Container>
     )

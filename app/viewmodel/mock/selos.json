@@ -1,0 +1,23 @@
+[
+  {
+    "codigo": "AGT20241234XYZ",
+    "produto": "Bebida Alcoólica",
+    "fabricante": "Luanda Drinks SA",
+    "data_emissao": "2024-12-01",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20231111ABC",
+    "produto": "Tabaco",
+    "fabricante": "Tabacos Angola Ltda",
+    "data_emissao": "2023-11-01",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20240000DEF",
+    "produto": "Água Mineral",
+    "fabricante": "Águas Puras Angola",
+    "data_emissao": "2024-03-10",
+    "status": "Cancelado"
+  }
+]
