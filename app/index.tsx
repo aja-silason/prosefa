@@ -1,7 +1,7 @@
-import { View } from "react-native";
+import Navigation from "./viewmodel/navigation";
 
 export default function App(){
     return (
-        <View></View>
+        <Navigation />
     )
 }
