@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import { ReactNode } from "react"
 import { StyleSheet, View } from "react-native";
 
@@ -16,6 +17,9 @@ export const Container = ({children}: props) => {
 
 const style = StyleSheet.create({
     container: {
-        padding: 10
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        backgroundColor: Colors.light.white[100],
+        flex: 1
     }
 })
