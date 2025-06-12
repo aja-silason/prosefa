@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
 import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 //import NotFoundSVG from '../assets/not-found.svg';
 //<NotFoundSVG width={200} height={200} />
@@ -20,7 +21,8 @@ export default function PresentationScreen() {
     return (
         <Container>
             <View style={styles.innerContainer}>
-                <Image source={example1} style={styles.image} />
+                {/*<Image source={example1} style={styles.image} />*/}
+                <Ionicons name="qr-code-outline" size={120} color={Colors.light.primary}/>
                 <Text style={styles.textTitle}>Programa Nacional de Selos Fiscais de Alta Segurança</Text>
                 <Text style={styles.textText}>O PROSEFA visa a combater o contrabando e a contrafacção, a protecção da receita devida ao estado, garantir a fiabilidade dos produtos introduzidos no território nacional e, deste modo, proteger a saúde pública, os direitos de propriedade intelectual e melhorar o ambiente de negócios.</Text>
 

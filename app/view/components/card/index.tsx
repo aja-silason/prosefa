@@ -8,26 +8,33 @@ type props = {
     description: string;
 }
 
-export const Card = ({icon, title, description}: props) => {
+export const Card = ({ icon, title, description }: props) => {
 
     return (
         <View style={styles.card}>
             {icon}
-            <Text style={styles.textTitle}>{title}</Text>
-            <Text style={styles.textDescription}>{description}</Text>
+            <View style={styles.textContainer}>
+                <Text style={styles.textTitle}>{title}</Text>
+                <Text style={styles.textDescription}>{description}</Text>
+            </View>
         </View>
     )
 
-} 
+}
 
 const styles = StyleSheet.create({
     card: {
         borderWidth: 1,
         borderColor: Colors.light.gray[100],
         padding: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        paddingVertical: 40
+    },
+    textContainer: {
+        gap: 2,
     },
     textTitle: {
+        fontSize: 16,
         fontWeight: 600,
         color: Colors.light.black,
     },
