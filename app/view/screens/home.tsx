@@ -6,6 +6,7 @@ import Colors from "@/constants/Colors";
 import { fiscalStamp } from "@/app/model/selo";
 
 import cervejaStamp from "@/app/viewmodel/mock/selos.json";
+import { SearchModal } from "../components/modal/search";
 
 
 type cardProps = {
@@ -17,10 +18,7 @@ type cardProps = {
 export default function Home() {
 
 
-    const cards: cardProps[] = [
-        { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" },
-        { icon: <Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />, title: "Scanear", description: "Escaneie o QR do Producto" }
-    ]
+    const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
 
 
     return (
@@ -32,11 +30,8 @@ export default function Home() {
             </View>
 
             <View style={styles.cardsContainer}>
-                {
-                    cards?.map((item: cardProps) => (
-                        <Card icon={item?.icon} title={item?.title} description={item?.description} />
-                    ))
-                }
+                <SearchModal data={searchCard} />
+                <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto"/>
             </View>
 
             <FlatList data={cervejaStamp}
@@ -51,7 +46,7 @@ export default function Home() {
                 }
                 renderItem={({ item, index }) => (
                     <View style={styles.flatlistStyleRenderComponent}>
-                        <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index}/>
+                        <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index} />
                     </View>
                 )
                 } ListEmptyComponent={() => (
@@ -84,7 +79,8 @@ const styles = StyleSheet.create({
         color: Colors.light.gray[100]
     },
     flatlistStyle: {
-        width: "100%"
+        width: "100%",
+        marginVertical: 20
     },
     flatlistStyleEmptyContent: {
         padding: 10

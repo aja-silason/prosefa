@@ -29,7 +29,6 @@ export const ProductCard = ({ produto, fabricante, data_emissao, codigo, status 
 
                 <Text style={styles.description}>{codigo}</Text>
                 <Text style={styles.description}>{fabricante}</Text>
-                <Text style={styles.description}>{status}</Text>
 
             </View>
 
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         gap: 5,
-        marginBottom: 7
+        marginBottom: 15
     },
     title: {
         fontWeight: 600,
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
         gap: 2
     },
     time: {
-        fontSize: 9,
+        fontSize: 10,
         color: Colors.light.gray[100]
     },
     
