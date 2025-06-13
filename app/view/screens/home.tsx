@@ -1,9 +1,8 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { Card, Container, ProductCard } from "../components";
+import { Card, Container, ProductCard, ToastModal } from "../components";
 import { ReactNode } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import { fiscalStamp } from "@/app/model/selo";
 
 import cervejaStamp from "@/app/viewmodel/mock/selos.json";
 import { SearchModal } from "../components/modal/search";
@@ -31,7 +30,7 @@ export default function Home() {
 
             <View style={styles.cardsContainer}>
                 <SearchModal data={searchCard} />
-                <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto"/>
+                <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
             </View>
 
             <FlatList data={cervejaStamp}
