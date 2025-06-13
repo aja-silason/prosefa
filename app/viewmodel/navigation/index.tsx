@@ -14,7 +14,7 @@ export default function Navigation() {
             <stack.Screen name="presentation" component={PresentationScreen} options={{ headerShown: false, statusBarStyle: "dark" }} />
             <stack.Screen name="fiscalstamp" component={FiscalStampScreen} options={{ headerShown: false, statusBarStyle: "dark" }} />
             <stack.Screen name="home" component={HomeScreen} options={{ headerShown: false, statusBarStyle: "dark"}} />
-            <stack.Screen name="qrcode" component={QRCodeScannerScreen} options={{ headerShown: false, statusBarStyle: "dark"}} />
+            <stack.Screen name="qrcode" component={QRCodeScannerScreen} options={{ headerShown: false, statusBarStyle: "light"}} />
         </stack.Navigator>
 
     )

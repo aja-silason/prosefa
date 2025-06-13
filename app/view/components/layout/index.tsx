@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 import { StyleSheet, View } from "react-native";
 
 type props = {
-    children: ReactNode;
+    children: ReactNode,
     styles?: object
 }
 export const Container = ({children, styles}: props) => {
