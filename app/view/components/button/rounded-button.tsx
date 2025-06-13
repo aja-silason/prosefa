@@ -4,13 +4,14 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
 type props = {
     icon: ReactNode;
-    onClick: VoidFunction
+    onClick: VoidFunction;
+    active: boolean;
 }
 
-export const RoundedButton = ({icon, onClick}: props) => {
+export const RoundedButton = ({icon, onClick, active = true}: props) => {
 
     return (
-        <TouchableOpacity style={styles.container} onPress={onClick} activeOpacity={.9}>
+        <TouchableOpacity disabled={!active} style={[styles.container, !active && styles.inactive]} onPress={onClick} activeOpacity={.9}>
             {icon}
         </TouchableOpacity>
     )
@@ -23,4 +24,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         padding: 20
     },
+    inactive: {
+        backgroundColor: Colors.light.gray[200]
+    }
 })

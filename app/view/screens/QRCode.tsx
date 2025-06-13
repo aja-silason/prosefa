@@ -5,12 +5,18 @@ import { useScanQrCode } from "@/app/viewmodel/hook/useScanQrCode";
 import Colors from "@/constants/Colors";
 import { ProductCard, RoundedButton } from "../components";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { fiscalStamp } from "@/app/model/selo";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app/model/routes";
 
 export default function QRCodeScannerScreen() {
 
     const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
-    const { handleScanned } = useScanQrCode();
+    const { handleScanned, resetScanner, active, information } = useScanQrCode();
+
+    const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     useEffect(() => {
         (async () => {
@@ -29,6 +35,11 @@ export default function QRCodeScannerScreen() {
         return <Text>Sem acesso a camera</Text>
     }
 
+    const handleStampScreen = (data: fiscalStamp) => {
+        navigate?.navigate("fiscalstamp", {payload: data});
+        resetScanner()
+    }
+
 
     return (
         <View style={{ flex: 1 }}>
@@ -36,8 +47,8 @@ export default function QRCodeScannerScreen() {
                 <View style={styles.overlay}>
 
                     <View style={styles.controls}>
-                        <RoundedButton onClick={() => { }} icon={<Ionicons name="camera" size={20} color={Colors.light.white[100]} />} />
-                        <RoundedButton onClick={() => { }} icon={<Ionicons name="camera" size={20} color={Colors.light.white[100]} />} />
+                        <RoundedButton onClick={resetScanner} icon={<Ionicons name="refresh" size={20} color={Colors.light.white[100]} />} active={active}/>
+                        <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active}/>
 
                     </View>
                 </View>
