@@ -1,0 +1,29 @@
+name: GENERATE A APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-o: ubuntu-latest
+
+    steps:
+      - name: Verify my code
+        uses: action/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+
+      - name: Install all dependancy
+        run : |
+          npm install -g expo-cli eas-cli
+          npm install
+      
+      - name: Build My project with EAS/Generate apk for Android Device
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+        run: |
+          eas build --plataform android production --non-interactive
