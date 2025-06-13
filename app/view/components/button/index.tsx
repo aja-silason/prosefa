@@ -20,7 +20,7 @@ export const Button = ({onClick, text, style}: props) => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: Colors.light.primary,
-        padding: 20,
+        padding: 15,
         borderRadius: 5,
         alignItems: "center",
         width: "100%"
