@@ -29,7 +29,7 @@ export default function FiscalStampScreen() {
             <View style={styles.arrowInner}>
                 <TouchableOpacity onPress={handleHomeScreen} style={styles.arrowInner} activeOpacity={0.9}>
                     <Ionicons name="arrow-back" size={25} color={Colors.light.primary} />
-                    <Text style={styles.textleKey}>Pesquisar </Text>
+                    <Text style={styles.textleKey}>Inicio </Text>
                 </TouchableOpacity>
             </View>
 
