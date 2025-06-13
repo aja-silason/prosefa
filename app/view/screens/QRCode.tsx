@@ -65,7 +65,17 @@ export default function QRCodeScannerScreen() {
 
                     <View style={styles.controls}>
                         <RoundedButton onClick={resetScanner} icon={<Ionicons name="refresh" size={20} color={Colors.light.white[100]} />} active={active} />
-                        <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active} />
+
+                        {
+                            typeToast == TYPETOAST.success ? (
+                                <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active} />
+
+                            ) : (
+                                <RoundedButton onClick={() => alert("verifique")} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={false} />
+
+                            )
+                        }
+
                     </View>
 
                     {

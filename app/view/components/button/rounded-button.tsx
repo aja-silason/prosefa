@@ -11,7 +11,7 @@ type props = {
 export const RoundedButton = ({icon, onClick, active = true}: props) => {
 
     return (
-        <TouchableOpacity disabled={!active} style={[styles.container, !active && styles.inactive]} onPress={onClick} activeOpacity={.9}>
+        <TouchableOpacity disabled={!active} style={[styles.container, active == false && styles.inactive]} onPress={onClick} activeOpacity={.9}>
             {icon}
         </TouchableOpacity>
     )
