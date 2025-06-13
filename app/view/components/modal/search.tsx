@@ -1,46 +1,46 @@
 import Colors from "@/constants/Colors";
-import { ChangeEvent, useEffect, useState } from "react";
-import { Alert, Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Card } from "../card";
 import { SearchInput } from "../input/input-search";
 import { Button } from "../button";
-
 import stamp from "@/app/viewmodel/mock/selos.json";
 import { fiscalStamp } from "@/app/model/selo";
 import { ToastModal } from "./toast";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app/model/routes";
+
 
 type props = {
     data: any
+    search: string,
+    setSearch: any;
+    toastVisible: any;
+    setToastVisible: any;
+    information: any;
+    setInformation: any;
+    fiscalStamp: any;
+    handleSend: any;
+    visible: any,
+    setVisible: any
 }
 
-export const SearchModal = ({ data }: props) => {
-    const [visible, setVisivle] = useState<boolean>(false);
-    const [search, setSearch] = useState<string>("");
-
-    const [toastVisible, setToastVisible] = useState<boolean>(false);
-    //const [notFoundMessage, setNotFoundMessage] = useState<any>(null);
-    const [information, setInformation] = useState<fiscalStamp>({ codigo: "", data_emissao: "", fabricante: "", produto: "", status: "" });
-
-    const fiscalStamp = stamp?.filter((item: fiscalStamp) => item?.codigo?.toLowerCase() == search?.toLowerCase());
-
-    const navigate: any = useNavigation();
+export const SearchModal = ({ data, fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible}: props) => {
 
     useEffect(() => {
 
         const time = setTimeout(() => {
             setToastVisible(false);
-            //setNotFoundMessage(null);
         }, 3000);
 
         () => clearTimeout(time);
 
-    }, [toastVisible, search, fiscalStamp]);
+    }, [toastVisible, search, fiscalStamp]); 
 
 
 
-    const handleSend = () => {
-        console.log(fiscalStamp)
+    /*const handleSend = () => {
         if (search?.trim() == "") return alert("Digite o código");
         if (!fiscalStamp?.length) {
             alert("Selo não encontrado")
@@ -52,15 +52,14 @@ export const SearchModal = ({ data }: props) => {
 
         setInformation(fiscalStamp[0]);
 
-        navigate.navigate("fiscalstamp", {payload: fiscalStamp[0]});
+        //navigate.navigate("fiscalstamp", {payload: fiscalStamp[0]});
 
-    }
+    }*/
 
-    console.log(information)
+    const openModal = () => setVisible(true);
+    const closeModal = () => setVisible(false);
 
-
-    const openModal = () => setVisivle(true);
-    const closeModal = () => setVisivle(false);
+    console.log(search)
 
     return (
         <View>

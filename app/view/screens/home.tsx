@@ -1,11 +1,17 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import { Card, Container, ProductCard, ToastModal } from "../components";
-import { ReactNode } from "react";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Card, Container, ProductCard } from "../components";
+import { ReactNode, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 
 import cervejaStamp from "@/app/viewmodel/mock/selos.json";
 import { SearchModal } from "../components/modal/search";
+import { RootStackParamList } from "@/app/model/routes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { fiscalStamp } from "@/app/model/selo";
+import { useStamp } from "@/app/viewmodel/hook/useStamp";
+
 
 
 type cardProps = {
@@ -14,11 +20,11 @@ type cardProps = {
     description: string;
 }
 
-export default function Home() {
+export default function HomeScreen() {
 
+    const { fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible } = useStamp();
 
-    const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
-
+    const searchCard: cardProps = { icon: <Ionicons name="search" size = { 30} color={ Colors.light.primary } />, title: "Pesquisar", description: "Digte o código do Produto" }
 
     return (
         <Container>
@@ -29,8 +35,10 @@ export default function Home() {
             </View>
 
             <View style={styles.cardsContainer}>
-                <SearchModal data={searchCard} />
+                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} information={information} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible}/>
+
                 <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
+
             </View>
 
             <FlatList data={cervejaStamp}
