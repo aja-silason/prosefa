@@ -18,20 +18,23 @@ type props = {
     fiscalStamp: any;
     handleSend: any;
     visible: any,
-    setVisible: any
+    setVisible: any,
+    errorMessage: string
+    setErrorMessage: any
 }
 
-export const SearchModal = ({ data, fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible}: props) => {
+export const SearchModal = ({ data, fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible, errorMessage, setErrorMessage}: props) => {
 
     useEffect(() => {
 
         const time = setTimeout(() => {
             setToastVisible(false);
+            setErrorMessage("");
         }, 3000);
 
         () => clearTimeout(time);
 
-    }, [toastVisible, search, fiscalStamp]); 
+    }, [toastVisible, search, fiscalStamp, errorMessage]); 
 
 
     const openModal = () => setVisible(true);
@@ -42,7 +45,7 @@ export const SearchModal = ({ data, fiscalStamp, handleSend, information, search
     return (
         <View>
             {
-                toastVisible && <ToastModal visible={toastVisible} toastmessage="Produto não encontrado" isSuccess={false} />
+                toastVisible && <ToastModal visible={toastVisible} toastmessage={errorMessage } isSuccess={false} />
             }
 
             <TouchableOpacity activeOpacity={.9} onPress={openModal}>
@@ -80,8 +83,9 @@ const style = StyleSheet.create({
     content: {
         backgroundColor: Colors.light.white[100],
         width: "100%",
-        height: "20%",
+        //height: "20%",
         padding: 10,
+        paddingVertical: 20,
         flexDirection: "column",
         gap: 20,
         justifyContent: "center",

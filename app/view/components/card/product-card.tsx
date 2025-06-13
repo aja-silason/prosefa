@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 600,
-        fontSize: 14,
+        fontSize: 13,
         color: Colors.light.black
     },
     description: {
         fontWeight: 500,
-        fontSize: 14,
+        fontSize: 12,
         color: Colors.light.gray[100]
     },
     titleContainer: {

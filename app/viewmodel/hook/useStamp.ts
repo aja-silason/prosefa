@@ -12,6 +12,7 @@ export const useStamp = () => {
     const [toastVisible, setToastVisible] = useState<boolean>(false);
     const [visible, setVisible] = useState<boolean>(false);
     const [information, setInformation] = useState<fiscalStamp>({ codigo: "", data_emissao: "", fabricante: "", produto: "", status: "" });
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
     const fiscalStamp = stamp?.filter((item: fiscalStamp) => item?.codigo?.toLowerCase() == search?.toLowerCase());
 
@@ -19,9 +20,12 @@ export const useStamp = () => {
 
 
     const handleSend = () => {
-        if (search?.trim() == "") return alert("Digite o código");
+        if (search?.trim() == "") {
+            setErrorMessage("Digite o código");
+            return
+        }
         if (!fiscalStamp?.length) {
-            alert("Selo não encontrado")
+            setErrorMessage("Selo não encontrado")
             setToastVisible(true);
             setInformation({ codigo: "", data_emissao: "", fabricante: "", produto: "", status: "" });
             return
@@ -34,7 +38,7 @@ export const useStamp = () => {
     }
 
     return {
-        fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible
+        fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage
     }
 
 }

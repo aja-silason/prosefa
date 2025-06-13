@@ -1,18 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
-import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/model/routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
-//import NotFoundSVG from '../assets/not-found.svg';
-//<NotFoundSVG width={200} height={200} />
-
-
-const example1 = require("@/assets/images/in_assets/example1.png");
-
 
 export default function PresentationScreen() {
 

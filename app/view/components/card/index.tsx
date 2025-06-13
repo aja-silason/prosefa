@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         paddingVertical: 40,
+        width: "70%"
     },
     icon: {
         marginBottom: 20
@@ -41,12 +42,13 @@ const styles = StyleSheet.create({
         gap: 2,
     },
     textTitle: {
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: 600,
         color: Colors.light.black,
     },
     textDescription: {
         fontWeight: 500,
         color: Colors.light.gray[100],
+        fontSize: 12
     },
 })

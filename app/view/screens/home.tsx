@@ -1,17 +1,14 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Card, Container, ProductCard } from "../components";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-
 import cervejaStamp from "@/app/viewmodel/mock/selos.json";
 import { SearchModal } from "../components/modal/search";
+import { useStamp } from "@/app/viewmodel/hook/useStamp";
 import { RootStackParamList } from "@/app/model/routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
-import { fiscalStamp } from "@/app/model/selo";
-import { useStamp } from "@/app/viewmodel/hook/useStamp";
-
 
 
 type cardProps = {
@@ -22,25 +19,29 @@ type cardProps = {
 
 export default function HomeScreen() {
 
-    const { fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible } = useStamp();
+    const { fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage } = useStamp();
 
-    const searchCard: cardProps = { icon: <Ionicons name="search" size = { 30} color={ Colors.light.primary } />, title: "Pesquisar", description: "Digte o código do Produto" }
+    const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
+
+    const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     return (
-        <Container>
+        <Container styles={styles.container}>
 
             <View style={styles.textContainer}>
-                <Text style={styles.titleText}>Home Screen</Text>
-                <Text style={styles.titleDescription}>Home Screen</Text>
+                <Text style={styles.titleText}>PROSEFA</Text>
+                <Text style={styles.titleDescription}>Garantindo os direitos de propriedade intelectual e melhorar o ambiente de negócios.</Text>
             </View>
 
             <View style={styles.cardsContainer}>
-                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} information={information} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible}/>
+                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} information={information} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
 
                 <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
 
             </View>
 
+            <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
+            <View style={styles.border}></View>
             <FlatList data={cervejaStamp}
                 keyExtractor={(_, index) => index?.toString()}
                 //onEndReached={loadMoreInformationOperationsActivity}
@@ -53,7 +54,9 @@ export default function HomeScreen() {
                 }
                 renderItem={({ item, index }) => (
                     <View style={styles.flatlistStyleRenderComponent}>
-                        <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index} />
+                        <TouchableOpacity activeOpacity={.8} onPress={() => navigate.navigate("fiscalstamp", {payload: item})}>
+                            <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index} />
+                        </TouchableOpacity>
                     </View>
                 )
                 } ListEmptyComponent={() => (
@@ -66,24 +69,32 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginVertical: 10
+    },
     cardsContainer: {
         flexDirection: "row",
         gap: 5,
-        marginBottom: 10
+        marginBottom: 10,
+        width: "100%"
     },
     textContainer: {
-        marginVertical: 10,
+        marginVertical: 20,
         gap: 3
     },
     titleText: {
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: 600,
         color: Colors.light.black
     },
     titleDescription: {
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: 500,
         color: Colors.light.gray[100]
+    },
+    border: {
+        borderBottomWidth: .5,
+        borderColor: Colors.light.gray[200]
     },
     flatlistStyle: {
         width: "100%",
