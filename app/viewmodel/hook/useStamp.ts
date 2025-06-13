@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useState } from "react";
 import stamp from "@/app/viewmodel/mock/selos.json";
+import { useStampHistory } from "../store/useStampHistory";
 
 export const useStamp = () => {
 
@@ -17,6 +18,8 @@ export const useStamp = () => {
     const fiscalStamp = stamp?.filter((item: fiscalStamp) => item?.codigo?.toLowerCase() == search?.toLowerCase());
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+    const { addStamp } = useStampHistory();
 
 
     const handleSend = () => {
@@ -33,6 +36,7 @@ export const useStamp = () => {
 
         setInformation(fiscalStamp[0]);
         navigate.navigate("fiscalstamp", { payload: fiscalStamp[0] });
+        addStamp(fiscalStamp[0]);
         setVisible(false)
 
     }

@@ -3,13 +3,13 @@ import { Card, Container, ProductCard } from "../components";
 import { ReactNode } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import cervejaStamp from "@/app/viewmodel/mock/selos.json";
 import { SearchModal } from "../components/modal/search";
 import { useStamp } from "@/app/viewmodel/hook/useStamp";
 import { RootStackParamList } from "@/app/model/routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
-
+import { useStampHistory } from "@/app/viewmodel/store/useStampHistory";
+import SVGFirstImage from "../components/svg/icon";
 
 type cardProps = {
     icon: ReactNode;
@@ -24,6 +24,8 @@ export default function HomeScreen() {
     const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+    const { historic } = useStampHistory();
 
     return (
         <Container styles={styles.container}>
@@ -48,7 +50,7 @@ export default function HomeScreen() {
             </View>
 
 
-            <FlatList data={cervejaStamp}
+            <FlatList data={historic}
                 keyExtractor={(_, index) => index?.toString()}
                 //onEndReached={loadMoreInformationOperationsActivity}
                 //onEndReachedThreshold={0.5}
@@ -67,6 +69,7 @@ export default function HomeScreen() {
                 )
                 } ListEmptyComponent={() => (
                     <View style={styles.flatlistStyleEmptyContent}>
+                        <SVGFirstImage width={80} height={80}/>
                         <Text style={styles.titleDescription}>Lista Vazia</Text>
                     </View>
                 )} />
@@ -108,7 +111,10 @@ const styles = StyleSheet.create({
         marginVertical: 20
     },
     flatlistStyleEmptyContent: {
-        padding: 10
+        padding: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5
     },
     flatlistStyleRenderComponent: {
         gap: 10,
