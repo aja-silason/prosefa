@@ -8,10 +8,10 @@ export const useStampHistory = create(
   persist<StampHistoryStore>(
     (set, get) => ({
       historic: [],
-      addStamp: (novoSelo) => {
-        const filtrado = get()?.historic?.filter((selo) => selo.codigo !== novoSelo.codigo);
+      addStamp: (newStamp) => {
+        const filtrado = get()?.historic?.filter((selo) => selo.codigo !== newStamp.codigo);
 
-        const newHistoric = [novoSelo, ...filtrado].slice(0, 20);
+        const newHistoric = [newStamp, ...filtrado].slice(0, 20);
 
         set({ historic: newHistoric });
       },
