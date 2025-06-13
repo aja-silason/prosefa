@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "prosefa-selo-app",
-    "slug": "prosefa-selo-app",
+    "name": "Prosefa",
+    "slug": "Prosefa",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
