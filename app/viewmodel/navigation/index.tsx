@@ -10,9 +10,9 @@ export default function Navigation() {
 
     return (
         <stack.Navigator>
-            <stack.Screen name="presentation" component={PresentationScreen} options={{ headerShown: false }} />
-            <stack.Screen name="fiscalstamp" component={FiscalStampScreen} options={{ headerShown: false }} />
-            <stack.Screen name="home" component={HomeScreen} options={{ headerShown: false}} />
+            <stack.Screen name="presentation" component={PresentationScreen} options={{ headerShown: false, statusBarStyle: "dark" }} />
+            <stack.Screen name="fiscalstamp" component={FiscalStampScreen} options={{ headerShown: false, statusBarStyle: "dark" }} />
+            <stack.Screen name="home" component={HomeScreen} options={{ headerShown: false, statusBarStyle: "dark"}} />
         </stack.Navigator>
 
     )

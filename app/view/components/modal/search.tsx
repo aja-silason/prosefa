@@ -1,5 +1,5 @@
 import Colors from "@/constants/Colors";
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect} from "react";
 import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Card } from "../card";
 import { SearchInput } from "../input/input-search";
@@ -14,7 +14,6 @@ type props = {
     setSearch: Dispatch<SetStateAction<string>>;
     toastVisible: boolean;
     setToastVisible: Dispatch<SetStateAction<boolean>>;
-    information: fiscalStamp;
     setInformation: Dispatch<SetStateAction<fiscalStamp>>;
     fiscalStamp: any;
     handleSend: VoidFunction;
@@ -24,7 +23,7 @@ type props = {
     setErrorMessage: Dispatch<SetStateAction<string>>
 }
 
-export const SearchModal = ({ data, fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible, errorMessage, setErrorMessage}: props) => {
+export const SearchModal = ({ data, fiscalStamp, handleSend, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible, errorMessage, setErrorMessage}: props) => {
 
     useEffect(() => {
 

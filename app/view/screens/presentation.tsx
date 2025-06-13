@@ -6,6 +6,11 @@ import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/model/routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
+import FirstImage from "../components/svg/icon";
+import SecondImage from "../components/svg/example1";
+import ThirdImage from "../components/svg/example2";
+
+
 export default function PresentationScreen() {
 
     const navigate: any = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -18,8 +23,16 @@ export default function PresentationScreen() {
         <Container>
             <View style={styles.innerContainer}>
                 {/*<Image source={example1} style={styles.image} />*/}
-                <Ionicons name="qr-code-outline" size={120} color={Colors.light.primary}/>
+                
+                <SecondImage width={200} height={200} />
+                
+                {/* 
+                <FirstImage width={200} height={200} />
+                <ThirdImage width={200} height={200} />
+                */}
+
                 <Text style={styles.textTitle}>Programa Nacional de Selos Fiscais de Alta Segurança</Text>
+
                 <Text style={styles.textText}>O PROSEFA visa a combater o contrabando e a contrafacção, a protecção da receita devida ao estado, garantir a fiabilidade dos produtos introduzidos no território nacional e, deste modo, proteger a saúde pública, os direitos de propriedade intelectual e melhorar o ambiente de negócios.</Text>
 
                 <Button onClick={handleNavigateHome} text="Iniciar" />
@@ -38,16 +51,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         flex: 1,
-        gap: "1.5em"
+        gap: 10
     },
     textTitle: {
         color: Colors.light.black[100],
         fontWeight: 600,
-        fontSize: 18,
+        fontSize: 15,
         textAlign: "center"
     },
     textText: {
         color: Colors.light.gray[100],
-        textAlign: "center"
+        textAlign: "center",
+        fontSize: 12
     },
 });

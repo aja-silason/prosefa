@@ -19,7 +19,7 @@ type cardProps = {
 
 export default function HomeScreen() {
 
-    const { fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage } = useStamp();
+    const { fiscalStamp, handleSend, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage } = useStamp();
 
     const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
 
@@ -34,7 +34,7 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.cardsContainer}>
-                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} information={information} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
+                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
 
                 <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
 

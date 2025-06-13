@@ -38,7 +38,7 @@ export const useStamp = () => {
     }
 
     return {
-        fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage
+        fiscalStamp, handleSend, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage
     }
 
 }
