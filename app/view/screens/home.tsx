@@ -21,11 +21,16 @@ export default function HomeScreen() {
 
     const { fiscalStamp, handleSend, search, setInformation, setSearch, setToastVisible, toastVisible, visible, setVisible, errorMessage, setErrorMessage } = useStamp();
 
-    const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digte o código do Produto" }
+    const searchCard: cardProps = { icon: <Ionicons name="search" size={30} color={Colors.light.primary} />, title: "Pesquisar", description: "Digite o código do Produto" }
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     const { historic } = useStampHistory();
+
+    const handleQRCodeRead = (data: string) => {
+        // Exemplo: suponha que o `data` seja o código do selo
+        //navigation.navigate("home");
+    };
 
     return (
         <Container styles={styles.container}>
@@ -44,7 +49,14 @@ export default function HomeScreen() {
 
             </View>
 
-            <View style={{marginVertical: 10}}>
+            <TouchableOpacity onPress={() => navigate.navigate("qrcode")}>
+                <Text style={styles.titleText}>Irrr   </Text>
+                <Text style={styles.titleText}>Irrr   </Text>
+                <Text style={styles.titleText}>Irrr   </Text>
+                <Text style={styles.titleText}>Irrr   </Text>
+            </TouchableOpacity>
+
+            <View style={{ marginVertical: 10 }}>
                 <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
                 <View style={styles.border}></View>
             </View>
@@ -69,7 +81,7 @@ export default function HomeScreen() {
                 )
                 } ListEmptyComponent={() => (
                     <View style={styles.flatlistStyleEmptyContent}>
-                        <SVGFirstImage width={80} height={80}/>
+                        <SVGFirstImage width={80} height={80} />
                         <Text style={styles.titleDescription}>Lista Vazia</Text>
                     </View>
                 )} />
@@ -79,7 +91,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 10
+        paddingVertical: 20
     },
     cardsContainer: {
         flexDirection: "row",

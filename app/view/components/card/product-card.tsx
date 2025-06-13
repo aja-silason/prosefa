@@ -20,7 +20,7 @@ export const ProductCard = ({ produto, fabricante, data_emissao, codigo, status 
 
             <View style={styles.innerContainer}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Product{produto}</Text>
+                    <Text style={styles.title}>{produto}</Text>
                     <View style={styles.titleTime}>
                         <Text style={styles.time}>{data_emissao}</Text>
                         <Ionicons name="calendar-number-outline" size={9} color={Colors.light.gray[100]}/>
