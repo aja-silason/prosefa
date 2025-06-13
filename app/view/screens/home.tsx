@@ -25,12 +25,7 @@ export default function HomeScreen() {
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-    const { historic } = useStampHistory();
-
-    const handleQRCodeRead = (data: string) => {
-        // Exemplo: suponha que o `data` seja o código do selo
-        //navigation.navigate("home");
-    };
+    const { historic, clearHistory } = useStampHistory();
 
     return (
         <Container styles={styles.container}>
@@ -43,7 +38,7 @@ export default function HomeScreen() {
             <View style={styles.cardsContainer}>
 
                 <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
-                
+
                 <TouchableOpacity onPress={() => navigate.navigate("qrcode")} activeOpacity={.9}>
                     <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
                 </TouchableOpacity>
@@ -51,9 +46,20 @@ export default function HomeScreen() {
             </View>
 
             <View style={{ marginVertical: 10 }}>
-                <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
+                    {
+                        historic?.length && (
+                            <TouchableOpacity onPress={clearHistory} style={styles.cleanButton} activeOpacity={0.9}>
+                                <Ionicons name="trash" size={20} color={Colors.light.primary}/>
+                            </TouchableOpacity>
+                        )
+                    }
+                </View>
+
                 <View style={styles.border}></View>
             </View>
+
 
 
             <FlatList data={historic}
@@ -131,6 +137,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopColor: Colors.light.gray[100],
         borderTopWidth: 1
+    },
+    cleanButton: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 5
     }
-})
+});
 
