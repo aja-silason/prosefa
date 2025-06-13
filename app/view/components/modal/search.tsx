@@ -4,12 +4,7 @@ import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Card } from "../card";
 import { SearchInput } from "../input/input-search";
 import { Button } from "../button";
-import stamp from "@/app/viewmodel/mock/selos.json";
-import { fiscalStamp } from "@/app/model/selo";
 import { ToastModal } from "./toast";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "@/app/model/routes";
 
 
 type props = {
@@ -38,23 +33,6 @@ export const SearchModal = ({ data, fiscalStamp, handleSend, information, search
 
     }, [toastVisible, search, fiscalStamp]); 
 
-
-
-    /*const handleSend = () => {
-        if (search?.trim() == "") return alert("Digite o código");
-        if (!fiscalStamp?.length) {
-            alert("Selo não encontrado")
-            setToastVisible(true);
-            //setNotFoundMessage("Selo não encontrado");
-            setInformation({ codigo: "", data_emissao: "", fabricante: "", produto: "", status: "" });
-            return
-        };
-
-        setInformation(fiscalStamp[0]);
-
-        //navigate.navigate("fiscalstamp", {payload: fiscalStamp[0]});
-
-    }*/
 
     const openModal = () => setVisible(true);
     const closeModal = () => setVisible(false);

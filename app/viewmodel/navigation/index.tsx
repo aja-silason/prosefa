@@ -12,7 +12,7 @@ export default function Navigation() {
         <stack.Navigator>
             <stack.Screen name="presentation" component={PresentationScreen} options={{ headerShown: false }} />
             <stack.Screen name="fiscalstamp" component={FiscalStampScreen} options={{ headerShown: false }} />
-            <stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
+            <stack.Screen name="home" component={HomeScreen} options={{ headerShown: false}} />
         </stack.Navigator>
 
     )
