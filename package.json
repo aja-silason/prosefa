@@ -1,5 +1,5 @@
 {
-  "name": "prosefa-selo-app",
+  "name": "prosefa",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
