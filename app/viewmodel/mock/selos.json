@@ -19,5 +19,124 @@
     "fabricante": "Águas Puras Angola",
     "data_emissao": "2024-03-10",
     "status": "Cancelado"
+  },
+  {
+    "codigo": "AGT20240101GHI",
+    "produto": "Refrigerante",
+    "fabricante": "Refrescos do Kwanza",
+    "data_emissao": "2024-01-15",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20230909JKL",
+    "produto": "Cerveja",
+    "fabricante": "Bebidas Nacional SA",
+    "data_emissao": "2023-09-09",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20240303MNO",
+    "produto": "Cigarros",
+    "fabricante": "Fumos Angola",
+    "data_emissao": "2024-03-03",
+    "status": "Cancelado"
+  },
+  {
+    "codigo": "AGT20240606PQR",
+    "produto": "Vinho",
+    "fabricante": "Vinícola Luena",
+    "data_emissao": "2024-06-01",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20230707STU",
+    "produto": "Cachaça",
+    "fabricante": "Destilaria Benguela",
+    "data_emissao": "2023-07-20",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20240505VWX",
+    "produto": "Água Mineral",
+    "fabricante": "Fonte Viva SA",
+    "data_emissao": "2024-05-05",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20231010YZA",
+    "produto": "Tabaco",
+    "fabricante": "Tabacos do Sul",
+    "data_emissao": "2023-10-10",
+    "status": "Cancelado"
+  },
+  {
+    "codigo": "AGT20240808BCD",
+    "produto": "Licor",
+    "fabricante": "Licoreria de Angola",
+    "data_emissao": "2024-08-08",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20231212EFG",
+    "produto": "Água com Gás",
+    "fabricante": "Águas Cristalinas",
+    "data_emissao": "2023-12-12",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20241111HIJ",
+    "produto": "Whisky",
+    "fabricante": "AngoWhisky Ltda",
+    "data_emissao": "2024-11-11",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20230202KLM",
+    "produto": "Rum",
+    "fabricante": "Destilaria Tropical",
+    "data_emissao": "2023-02-02",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20240909NOP",
+    "produto": "Cerveja Artesanal",
+    "fabricante": "Cervejaria Lobito",
+    "data_emissao": "2024-09-09",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20240120QRS",
+    "produto": "Tabaco",
+    "fabricante": "AngoTabacos",
+    "data_emissao": "2024-01-20",
+    "status": "Cancelado"
+  },
+  {
+    "codigo": "AGT20240404TUV",
+    "produto": "Bebida Energética",
+    "fabricante": "Energéticos Luanda",
+    "data_emissao": "2024-04-04",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20230303WXY",
+    "produto": "Vodka",
+    "fabricante": "Vodkas do Norte",
+    "data_emissao": "2023-03-03",
+    "status": "Expirado"
+  },
+  {
+    "codigo": "AGT20240630ZAB",
+    "produto": "Água Mineral",
+    "fabricante": "Água Essencial SA",
+    "data_emissao": "2024-06-30",
+    "status": "Válido"
+  },
+  {
+    "codigo": "AGT20230415CDE",
+    "produto": "Tabaco",
+    "fabricante": "Tabacos do Kuito",
+    "data_emissao": "2023-04-15",
+    "status": "Cancelado"
   }
 ]
