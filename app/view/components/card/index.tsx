@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
         borderColor: Colors.light.gray[100],
         padding: 10,
         borderRadius: 5,
-        paddingVertical: 25,
-        width: "100%"
+        paddingVertical: 15,
+        width: "90%"
     },
     icon: {
         marginBottom: 20
