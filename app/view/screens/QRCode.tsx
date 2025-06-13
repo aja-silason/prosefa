@@ -35,11 +35,19 @@ export default function QRCodeScannerScreen() {
 
 
     if (hasPermission == null) {
-        return <Text>Solicitando Permissão</Text>
+        return (
+            <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+                <Text style={styles.textleKey}>Solicitando Permissão</Text>
+            </View>
+        )
     }
 
     if (hasPermission == false) {
-        return <Text>Sem acesso a camera</Text>
+        return (
+            <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+                <Text style={styles.textleKey}>Sem acesso a camera</Text>
+            </View>
+        )
     }
 
     const handleStampScreen = (data: fiscalStamp) => {
