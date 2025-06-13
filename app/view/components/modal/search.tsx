@@ -1,7 +1,9 @@
 import Colors from "@/constants/Colors";
-import { useState } from "react";
-import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
+import { ChangeEvent, useState } from "react";
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Card } from "../card";
+import { SearchInput } from "../input/input-search";
+import { Button } from "../button";
 
 
 type props = {
@@ -10,6 +12,10 @@ type props = {
 
 export const SearchModal = ({data}: props) => {
     const [visible, setVisivle] = useState<boolean>(false);
+
+    const [search, setSearch] = useState<string>("");
+
+    console.log(search)
 
     const openModal = () => setVisivle(true);
     const closeModal = () => setVisivle(false);
@@ -28,6 +34,9 @@ export const SearchModal = ({data}: props) => {
                 <TouchableOpacity style={style.overlay} onPress={closeModal}>
 
                     <TouchableOpacity style={style.content} activeOpacity={1}>
+                        <SearchInput onchange={setSearch} value={search} placeholder="Pesquise o código"/>
+                            <Text></Text>
+                        <Button onClick={()=>{}} text="Processar pesquisa"/>
                     </TouchableOpacity>
 
                 </TouchableOpacity>
@@ -50,7 +59,7 @@ const style = StyleSheet.create({
         width: "100%",
         height: "20%",
         padding: 10,
-        flexDirection: "row",
+        flexDirection: "column",
         gap: 20,
         justifyContent: "center",
         alignItems: "center",
