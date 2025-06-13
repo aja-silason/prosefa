@@ -1,15 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/model/routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
-import FirstImage from "../components/svg/icon";
 import SecondImage from "../components/svg/example1";
-import ThirdImage from "../components/svg/example2";
-
 
 export default function PresentationScreen() {
 
