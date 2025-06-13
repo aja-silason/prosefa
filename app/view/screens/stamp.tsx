@@ -1,5 +1,5 @@
 import { RootStackParamList } from "@/app/model/routes";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Button, Container } from "../components";
 import Colors from "@/constants/Colors";
@@ -8,7 +8,7 @@ import FirstImage from "../components/svg/icon";
 import SecondImage from "../components/svg/example1";
 import ThirdImage from "../components/svg/example2";
 
-type RouteProps = RouteProps<RootStackParamList, "fiscalstamp">;
+type RouteProps = RouteProp<RootStackParamList, "fiscalstamp">;
 
 export default function FiscalStampScreen() {
 
