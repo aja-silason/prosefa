@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 import { StampHistoryStore } from "@/app/model/historyStamp";
 
 
@@ -19,11 +19,7 @@ export const useStampHistory = create(
     }),
     {
       name: "stampHistoric",
-      storage: {
-        getItem: AsyncStorage.getItem,
-        setItem: AsyncStorage.setItem,
-        removeItem: AsyncStorage.removeItem,
-      },
+      storage: createJSONStorage(() => AsyncStorage)
     }
   )
 );
