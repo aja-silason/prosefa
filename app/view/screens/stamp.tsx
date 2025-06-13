@@ -7,6 +7,8 @@ import { Ionicons } from "@expo/vector-icons";
 import FirstImage from "../components/svg/icon";
 import SecondImage from "../components/svg/example1";
 import ThirdImage from "../components/svg/example2";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 
 type RouteProps = RouteProp<RootStackParamList, "fiscalstamp">;
 
@@ -16,12 +18,16 @@ export default function FiscalStampScreen() {
     const { params } = useRoute<RouteProps>();
     const { payload } = params;
 
-    const navigate = useNavigation();
+    const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+    const handleHomeScreen = () => {
+        navigate.navigate("home");
+    }
 
     return (
         <Container styles={styles.container}>
             <View style={styles.arrowInner}>
-                <TouchableOpacity onPress={() => navigate.goBack()} style={styles.arrowInner}>
+                <TouchableOpacity onPress={handleHomeScreen} style={styles.arrowInner}>
                     <Ionicons name="arrow-back" size={25} color={Colors.light.primary} />
                     <Text style={styles.textleKey}>Pesquisar </Text>
                 </TouchableOpacity>
@@ -70,7 +76,7 @@ export default function FiscalStampScreen() {
 
 
             </View>
-            <Button onClick={() => navigate.goBack()} text="Voltar" />
+            <Button onClick={handleHomeScreen} text="Voltar" />
         </Container>
 
     )

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Camera, CameraView } from "expo-camera"
 import { useScanQrCode } from "@/app/viewmodel/hook/useScanQrCode";
 import Colors from "@/constants/Colors";
-import { ProductCard, RoundedButton } from "../components";
+import { RoundedButton } from "../components";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { fiscalStamp } from "@/app/model/selo";
@@ -36,8 +36,12 @@ export default function QRCodeScannerScreen() {
     }
 
     const handleStampScreen = (data: fiscalStamp) => {
-        navigate?.navigate("fiscalstamp", {payload: data});
+        navigate?.navigate("fiscalstamp", { payload: data });
         resetScanner()
+    }
+
+    const handleHomeScreen = () => {
+        navigate.navigate("home");
     }
 
 
@@ -45,10 +49,16 @@ export default function QRCodeScannerScreen() {
         <View style={{ flex: 1 }}>
             <CameraView facing="back" barcodeScannerSettings={{ barcodeTypes: ["qr"] }} onBarcodeScanned={handleScanned} style={StyleSheet.absoluteFillObject}>
                 <View style={styles.overlay}>
+                    <View style={styles.arrowInner}>
+                        <TouchableOpacity onPress={handleHomeScreen} style={styles.arrowInner}>
+                            <Ionicons name="arrow-back" size={25} color={Colors.light.white[100]} />
+                            <Text style={styles.textleKey}>Voltar </Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <View style={styles.controls}>
-                        <RoundedButton onClick={resetScanner} icon={<Ionicons name="refresh" size={20} color={Colors.light.white[100]} />} active={active}/>
-                        <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active}/>
+                        <RoundedButton onClick={resetScanner} icon={<Ionicons name="refresh" size={20} color={Colors.light.white[100]} />} active={active} />
+                        <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active} />
 
                     </View>
                 </View>
@@ -64,8 +74,10 @@ const styles = StyleSheet.create({
     overlay: {
         backgroundColor: "rgba(0,0,0,0.3)",
         flex: 1,
-        justifyContent: "flex-end",
-        alignItems: "center",
+        justifyContent: "space-between",
+        //alignItems: "center",
+        paddingHorizontal: 20,
+        paddingTop: 40,
         paddingBottom: 100
     },
     controls: {
@@ -73,6 +85,22 @@ const styles = StyleSheet.create({
         gap: 40,
         width: "100%",
         justifyContent: "center"
-    }
+    },
+    backButton: {
+        flexDirection: "row",
+        gap: 40,
+        width: "100%",
+        justifyContent: "center"
+    },
+    arrowInner: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 5
+    },
+    textleKey: {
+        fontSize: 13,
+        fontWeight: 600,
+        color: Colors.light.white[100]
+    },
 })
 
