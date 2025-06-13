@@ -49,11 +49,11 @@ export default function HomeScreen() {
                 <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                     <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
                     {
-                        historic?.length && (
+                        historic?.length ? (
                             <TouchableOpacity onPress={clearHistory} style={styles.cleanButton} activeOpacity={0.9}>
                                 <Ionicons name="trash" size={20} color={Colors.light.primary}/>
                             </TouchableOpacity>
-                        )
+                        ) : null
                     }
                 </View>
 
@@ -67,11 +67,7 @@ export default function HomeScreen() {
                 //onEndReached={loadMoreInformationOperationsActivity}
                 //onEndReachedThreshold={0.5}
                 style={styles.flatlistStyle}
-                ListFooterComponent={
-                    <View style={styles.flatlistStyleListFootercomponent}>
-                        {/*<Text style={styles.titleDescription}>Fim da Lista</Text>*/}
-                    </View>
-                }
+                
                 renderItem={({ item, index }) => (
                     <View style={styles.flatlistStyleRenderComponent}>
                         <TouchableOpacity activeOpacity={.8} onPress={() => navigate.navigate("fiscalstamp", { payload: item })}>
