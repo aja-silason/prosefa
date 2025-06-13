@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Camera, CameraView } from "expo-camera"
-import { useScanQrCode } from "@/app/viewmodel/hook/useScanQrCode";
+import { TYPETOAST, useScanQrCode } from "@/app/viewmodel/hook/useScanQrCode";
 import Colors from "@/constants/Colors";
 import { RoundedButton, ToastModal } from "../components";
 import { Ionicons } from "@expo/vector-icons";
@@ -14,7 +14,7 @@ export default function QRCodeScannerScreen() {
 
     const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
-    const { handleScanned, resetScanner, active, information, scanned, toastModal, setToasModal } = useScanQrCode();
+    const { handleScanned, resetScanner, active, information, scanned, toastModal, setToasModal, typeToast } = useScanQrCode();
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -66,11 +66,10 @@ export default function QRCodeScannerScreen() {
                     <View style={styles.controls}>
                         <RoundedButton onClick={resetScanner} icon={<Ionicons name="refresh" size={20} color={Colors.light.white[100]} />} active={active} />
                         <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active} />
-
                     </View>
 
                     {
-                        toastModal && <ToastModal isSuccess visible={toastModal} toastmessage="Selo verificado" />
+                        toastModal && <ToastModal isSuccess={typeToast == TYPETOAST.success ? true : false} visible={toastModal} toastmessage={typeToast == TYPETOAST.success ? "Selo verificado" : "Erro ao verificar o Selo"} />
                     }
 
                 </View>
