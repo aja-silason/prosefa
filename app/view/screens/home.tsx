@@ -34,14 +34,20 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.cardsContainer}>
-                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
 
-                <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
+                <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
+                <View>
+                    <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
+                </View>
 
             </View>
 
-            <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
-            <View style={styles.border}></View>
+            <View style={{marginVertical: 10}}>
+                <Text style={styles.titleDescription}>Pesquisas Recentes</Text>
+                <View style={styles.border}></View>
+            </View>
+
+
             <FlatList data={cervejaStamp}
                 keyExtractor={(_, index) => index?.toString()}
                 //onEndReached={loadMoreInformationOperationsActivity}
@@ -49,12 +55,12 @@ export default function HomeScreen() {
                 style={styles.flatlistStyle}
                 ListFooterComponent={
                     <View style={styles.flatlistStyleListFootercomponent}>
-                        <Text style={styles.titleDescription}>Fim da Lista</Text>
+                        {/*<Text style={styles.titleDescription}>Fim da Lista</Text>*/}
                     </View>
                 }
                 renderItem={({ item, index }) => (
                     <View style={styles.flatlistStyleRenderComponent}>
-                        <TouchableOpacity activeOpacity={.8} onPress={() => navigate.navigate("fiscalstamp", {payload: item})}>
+                        <TouchableOpacity activeOpacity={.8} onPress={() => navigate.navigate("fiscalstamp", { payload: item })}>
                             <ProductCard codigo={item?.codigo} data_emissao={item?.data_emissao} fabricante={item?.fabricante} status={item?.status} produto={item?.produto} key={index} />
                         </TouchableOpacity>
                     </View>
@@ -70,13 +76,14 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        marginVertical: 10
+        paddingVertical: 10
     },
     cardsContainer: {
         flexDirection: "row",
         gap: 5,
         marginBottom: 10,
-        width: "100%"
+        width: "100%",
+        justifyContent: "space-between"
     },
     textContainer: {
         marginVertical: 20,

@@ -21,15 +21,8 @@ export default function PresentationScreen() {
 
     return (
         <Container>
-            <View style={styles.innerContainer}>
-                {/*<Image source={example1} style={styles.image} />*/}
-                
+            <View style={styles.innerContainer}> 
                 <SecondImage width={200} height={200} />
-                
-                {/* 
-                <FirstImage width={200} height={200} />
-                <ThirdImage width={200} height={200} />
-                */}
 
                 <Text style={styles.textTitle}>Programa Nacional de Selos Fiscais de Alta Segurança</Text>
 

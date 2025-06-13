@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         alignContent: "center",
         flex: 1,
         flexDirection: "column",
-        marginVertical: 40
+        paddingVertical: 40
     },
     arrowInner: {
         flexDirection: "row",
