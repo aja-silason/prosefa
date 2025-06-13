@@ -5,6 +5,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useState } from "react";
 import stamp from "@/app/viewmodel/mock/selos.json";
 import { useStampHistory } from "../store/useStampHistory";
+import { Alert } from "react-native";
 
 export const useStamp = () => {
 
@@ -25,13 +26,14 @@ export const useStamp = () => {
     const handleSend = () => {
         if (search?.trim() == "") {
             setErrorMessage("Digite o código");
-            return
+            Alert.alert("Aviso", "Insira um valor");
+            return;
         }
         if (!fiscalStamp?.length) {
             setErrorMessage("Selo não encontrado")
             setToastVisible(true);
             setInformation({ codigo: "", data_emissao: "", fabricante: "", produto: "", status: "" });
-            return
+            return;
         };
 
         setInformation(fiscalStamp[0]);
