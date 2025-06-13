@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Camera, CameraView } from "expo-camera"
 import { useScanQrCode } from "@/app/viewmodel/hook/useScanQrCode";
 import Colors from "@/constants/Colors";
-import { RoundedButton } from "../components";
+import { RoundedButton, ToastModal } from "../components";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { fiscalStamp } from "@/app/model/selo";
@@ -14,7 +14,7 @@ export default function QRCodeScannerScreen() {
 
     const [hasPermission, setHasPermission] = useState<boolean | null>(null);
 
-    const { handleScanned, resetScanner, active, information } = useScanQrCode();
+    const { handleScanned, resetScanner, active, information, scanned, toastModal, setToasModal } = useScanQrCode();
 
     const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -24,7 +24,14 @@ export default function QRCodeScannerScreen() {
             setHasPermission(status == "granted");
         })()
 
-    }, []);
+        const timeToShowSuccessToast = setTimeout(() => {
+            setToasModal(false);
+        }, 3000);
+
+        () => clearTimeout(timeToShowSuccessToast);
+
+    }, [toastModal]);
+
 
 
     if (hasPermission == null) {
@@ -50,7 +57,7 @@ export default function QRCodeScannerScreen() {
             <CameraView facing="back" barcodeScannerSettings={{ barcodeTypes: ["qr"] }} onBarcodeScanned={handleScanned} style={StyleSheet.absoluteFillObject}>
                 <View style={styles.overlay}>
                     <View style={styles.arrowInner}>
-                        <TouchableOpacity onPress={handleHomeScreen} style={styles.arrowInner}>
+                        <TouchableOpacity onPress={handleHomeScreen} style={styles.arrowInner} activeOpacity={0.9}>
                             <Ionicons name="arrow-back" size={25} color={Colors.light.white[100]} />
                             <Text style={styles.textleKey}>Voltar </Text>
                         </TouchableOpacity>
@@ -61,6 +68,11 @@ export default function QRCodeScannerScreen() {
                         <RoundedButton onClick={() => handleStampScreen(information)} icon={<Ionicons name="list" size={20} color={Colors.light.white[100]} />} active={active} />
 
                     </View>
+
+                    {
+                        toastModal && <ToastModal isSuccess visible={toastModal} toastmessage="Selo verificado" />
+                    }
+
                 </View>
             </CameraView>
 

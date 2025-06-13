@@ -43,18 +43,12 @@ export default function HomeScreen() {
             <View style={styles.cardsContainer}>
 
                 <SearchModal data={searchCard} fiscalStamp={fiscalStamp} handleSend={handleSend} search={search} setInformation={setInformation} setSearch={setSearch} setToastVisible={setToastVisible} toastVisible={toastVisible} visible={visible} setVisible={setVisible} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
-                <View>
+                
+                <TouchableOpacity onPress={() => navigate.navigate("qrcode")} activeOpacity={.9}>
                     <Card icon={<Ionicons name="qr-code-outline" size={30} color={Colors.light.primary} />} title="Scanear" description="Escaneie o QR do Producto" />
-                </View>
+                </TouchableOpacity>
 
             </View>
-
-            <TouchableOpacity onPress={() => navigate.navigate("qrcode")}>
-                <Text style={styles.titleText}>Irrr   </Text>
-                <Text style={styles.titleText}>Irrr   </Text>
-                <Text style={styles.titleText}>Irrr   </Text>
-                <Text style={styles.titleText}>Irrr   </Text>
-            </TouchableOpacity>
 
             <View style={{ marginVertical: 10 }}>
                 <Text style={styles.titleDescription}>Pesquisas Recentes</Text>

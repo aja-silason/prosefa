@@ -13,11 +13,14 @@ export const useScanQrCode = () => {
     const [active, setActive] = useState<boolean>(false);
     const [information, setInformation] = useState<fiscalStamp>({codigo: "", data_emissao: "", fabricante: "", produto: "", status: ""});
 
+    const [toastModal, setToasModal] = useState<boolean>(false);
+
     const handleScanned = ({ data }: scanneprops) => {
 
         if(!scanned) {
             setScanned(true)
             setActive(true)
+            setToasModal(true);
             console.log("Dados do sacan => ", data);
             Alert.alert("Dados do sacan => ", data)
             const fiscalStamp = stamp?.filter((item: fiscalStamp) => item?.codigo?.toLowerCase() == data?.toLowerCase());
@@ -32,6 +35,6 @@ export const useScanQrCode = () => {
         setActive(false)
     }
 
-    return {handleScanned, scanned, active, resetScanner, information}
+    return {handleScanned, scanned, active, resetScanner, information, toastModal, setToasModal}
 
 }
