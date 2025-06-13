@@ -24,6 +24,5 @@ jobs:
       - name: Build My project with EAS/Generate apk for Android Device
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
         run: |
           eas build --platform android --profile production --non-interactive
