@@ -1,26 +1,27 @@
 import Colors from "@/constants/Colors";
-import { useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Card } from "../card";
 import { SearchInput } from "../input/input-search";
 import { Button } from "../button";
 import { ToastModal } from "./toast";
+import { fiscalStamp } from "@/app/model/selo";
 
 
 type props = {
     data: any
     search: string,
-    setSearch: any;
-    toastVisible: any;
-    setToastVisible: any;
-    information: any;
-    setInformation: any;
+    setSearch: Dispatch<SetStateAction<string>>;
+    toastVisible: boolean;
+    setToastVisible: Dispatch<SetStateAction<boolean>>;
+    information: fiscalStamp;
+    setInformation: Dispatch<SetStateAction<fiscalStamp>>;
     fiscalStamp: any;
-    handleSend: any;
-    visible: any,
-    setVisible: any,
+    handleSend: VoidFunction;
+    visible: boolean,
+    setVisible: Dispatch<SetStateAction<boolean>>,
     errorMessage: string
-    setErrorMessage: any
+    setErrorMessage: Dispatch<SetStateAction<string>>
 }
 
 export const SearchModal = ({ data, fiscalStamp, handleSend, information, search, setInformation, setSearch, setToastVisible, toastVisible, visible = false, setVisible, errorMessage, setErrorMessage}: props) => {
