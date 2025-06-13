@@ -26,4 +26,4 @@ jobs:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
         run: |
-          eas build --plataform android production --non-interactive
+          eas build --platform android production --non-interactive
