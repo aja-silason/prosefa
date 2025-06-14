@@ -10,6 +10,13 @@ Este app simula a funcionalidade de validação de selos fiscais como na platafo
 
 
 - [Node.js](https://nodejs.org/) e [npm](https://www.npmjs.com/)
+- eas-cli
+
+   ```
+      npm install -g eas-cli
+   ```
+
+
 
 
 ## ⚙️ Como configurar o projeto
@@ -63,7 +70,20 @@ Caso precise rodar e limpar o cache estando offline:
       http://sua-rede:8081
    ```
 
-Certifique-se de ter o Expo instalado no dispositivo, cole a url ou Scaneio o QrCode, na aplicação do Expo
+Certifique-se de ter o Expo instalado no dispositivo, ter uma conta na expo, cole a url ou Scaneio o QrCode, na aplicação do Expo
+
+
+ [Expo](https://expo.dev/)
+
+
+##  Build do projecto
+
+
+Para executar o mesmo, terá que ter as credencias da expo em sua máquina
+
+```
+   eas build -p android --profile production
+```
 
 
 
