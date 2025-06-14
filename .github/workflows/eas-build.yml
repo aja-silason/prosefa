@@ -21,7 +21,7 @@ jobs:
           npm install -g expo-cli eas-cli
           npm install
       
-      - name: Build My project with EAS/Generate apk for Android Device
+      - name: EAS build Android (production)
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
