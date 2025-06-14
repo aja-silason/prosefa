@@ -33,6 +33,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "ad2716d9-935b-40d0-905a-649bb1f4d7e9"
+      }
+    },
+    "owner": "anania_augusto"
   }
 }
