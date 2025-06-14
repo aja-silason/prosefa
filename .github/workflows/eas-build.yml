@@ -21,8 +21,8 @@ jobs:
           npm install -g expo-cli eas-cli
           npm install
       
-      - name: EAS build Android (production)
+      - name: EAS build Android (preview)
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
-          eas build --platform android --profile production --non-interactive
+          eas build --platform android --profile preview --non-interactive
